@@ -1,0 +1,117 @@
+/* 重置默认样式，消除边距 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f172a; /* 科技深色背景，与界面主体统一 */
+  color: #e2e8f0; /* 文字浅色调 */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  /* 给固定导航栏预留顶部空间（值等于导航栏高度） */
+  padding-top: 60px;
+}
+
+/* 登录/注册界面的白色背景类 */
+.white-bg {
+  background-color: #fff;
+}
+
+/* 登录后界面的科技深色背景类 */
+.tech-bg {
+  background-color: #0f172a; /* 科技深色背景 */
+  color: #e2e8f0; /* 文字浅色调，与深色背景适配 */
+}
+
+/* 导航栏样式：固定顶部 + 科技感 */
+.navbar {
+  /* 固定定位 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; /* 确保导航栏在最上层 */
+
+  /* 布局与间距 */
+  padding: 1rem 2rem;
+  background: rgba(15, 23, 42, 0.9); /* 半透明深色背景，与主体风格统一 */
+  backdrop-filter: blur(8px); /* 毛玻璃效果 */
+  border-bottom: 1px solid rgba(66, 185, 131, 0.2); /* 科技感边框 */
+
+  /* 内容排列：左右分布 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem; /* 链接之间的间距 */
+}
+
+/* 导航链接样式 */
+.navbar router-link {
+  text-decoration: none;
+  color: #e2e8f0; /* 文字浅色调 */
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px; /* 轻微圆角 */
+  transition: all 0.3s ease;
+}
+
+.navbar router-link:hover {
+  color: hsla(160, 100%, 37%, 1); /* hover时变为主题绿 */
+  background-color: hsla(160, 100%, 37%, 0.1); /* 轻微背景色 */
+}
+
+/* 退出按钮样式 */
+.logout-btn {
+  padding: 0.5rem 1rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f; /* 加深红色 */
+}
+
+/* 主内容区域样式 */
+.content {
+  padding: 0; /* 消除内容内边距，避免白色边距 */
+  min-height: calc(100vh - 60px); /* 最小高度 = 屏幕高度 - 导航栏高度 */
+}
+
+/* 链接和绿色主题样式（保留原有） */
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+/* 响应式适配（大屏） */
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 1rem 4rem; /* 大屏时导航栏左右内边距增加 */
+  }
+}
+
+/* 小屏适配（手机） */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap; /* 链接过多时自动换行 */
+    padding: 0.8rem 1rem;
+  }
+}
